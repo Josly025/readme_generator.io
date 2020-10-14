@@ -1,8 +1,9 @@
 const inquirer = require("inquier"); //inquire
-const fs = require("fs"); //filesystem 
-const                 //markdown file??
+const fs = require("fs"); //filesystem
+const path = require("path");
+const markdown = require("."); //markdown file??
 
-///////starting the inquire function 
+///////starting the inquire function
 inquirer.prompt([
   {
     type: "input",
@@ -37,7 +38,6 @@ inquirer.prompt([
   //Liscense
   //GitHub
 ]);
-///promise to write to a markdown file 
-
+///promise to write to a markdown file
 
 // function writerToFile()

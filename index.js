@@ -1,9 +1,7 @@
-const inquirer = require("inquirer"); //inquire
+const inquirer = require("inquirer"); //inquirer
 const fs = require("fs"); //filesystem
-const path = require("path");
-const markdown = require("."); //markdown file??
 
-///////starting the inquire function
+///////////////////////////////starting the inquire function
 inquirer
   .prompt([
     {
@@ -41,16 +39,43 @@ inquirer
       message: "What are the Contribution Guidlines?",
       name: "contribution_guidlines",
     },
+    {
+      type: "list",
+      name: "license",
+      message: "What license to your prefer?",
+      choices: ["MIT", "IBM", "Apache"],
+    },
   ])
   .then(function (answers) {
     console.log(answers);
+    //adding license option via type: list
+    let license;
+    if (answers.license === "MIT") {
+      license =
+        "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+    } else if (answers.license === "IBM") {
+      license =
+        "[![License: IPL 1.0](https://img.shields.io/badge/License-IPL%201.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)";
+    } else if (answers.license === "Apache") {
+      license =
+        "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+    }
 
-    let markdown = `${answers.github}
-     ${answers.title}
-     ${answers.description}
+    let markdown = `
+    ## GitHub Username
+    ${answers.github}
+    ### Title 
+    ${answers.title}
+    ## Description
+    ${answers.description}
+    ## Installation Instructions 
      ${answers.installation_instructions} 
+    ##Usage Information 
      ${answers.usage_information}
-     ${answers.contribution_guidlines}`;
+    ## Contribution Guidlines
+     ${answers.contribution_guidlines}
+    ## License 
+     ${license}`;
 
     fs.writeFile("README.md", markdown, function (error) {
       if (error) {
@@ -59,5 +84,3 @@ inquirer
       }
     });
   });
-
-//inquirer, path, markdown, fs

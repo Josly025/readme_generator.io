@@ -67,10 +67,7 @@ inquirer
     }
 
     ///new Markdown variable
-    let markdown = `### GitHub Username ***
-    ${answers.github} 
-### Title ****
-    ${answers.title} 
+    let markdown = `### Title **** ${answers.title} 
 ## Description ***
     ${answers.description} 
 ## Table of Contents ****
@@ -87,6 +84,8 @@ inquirer
 ## Questions 
 * If you have any questions, feel free to reach out to me by email.
     ${answers.questions}
+### GitHub Username ***
+    ${answers.github} 
 ## License ***
      ${license}`;
 

@@ -40,6 +40,11 @@ inquirer
       name: "contribution_guidlines",
     },
     {
+      type: "input",
+      message: "What is your email?",
+      name: "questions",
+    },
+    {
       type: "list",
       name: "license",
       message: "What license to your prefer?",
@@ -58,23 +63,28 @@ inquirer
         "[![License: IPL 1.0](https://img.shields.io/badge/License-IPL%201.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)";
     } else if (answers.license === "Apache") {
       license =
-        "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+        "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)(https://opensource.org/licenses/Apache-2.0)";
     }
 
-    let markdown = `
-    ## GitHub Username
-    ${answers.github}
-    ### Title 
-    ${answers.title}
-    ## Description
-    ${answers.description}
-    ## Installation Instructions 
+    ///new Markdown variable
+    let markdown = `### GitHub Username 
+    ${answers.github} 
+### Title ****
+    ${answers.title} 
+## Description
+    ${answers.description} 
+## Table of Contents *****************
+* [Installation Instructions](##Installation_Instructions)
+* [Usage Information](##Usage_Information)
+* [Contribution Guidlines](##Contribution_Guidlines)
+* [License](##License) 
+## Installation_Instructions 
      ${answers.installation_instructions} 
-    ##Usage Information 
+## Usage_Information 
      ${answers.usage_information}
-    ## Contribution Guidlines
+## Contribution_Guidlines
      ${answers.contribution_guidlines}
-    ## License 
+## License 
      ${license}`;
 
     fs.writeFile("README.md", markdown, function (error) {

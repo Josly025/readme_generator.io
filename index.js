@@ -57,34 +57,34 @@ inquirer
     let license;
     if (answers.license === "MIT") {
       license =
-        "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+        "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)(https://opensource.org/licenses/MIT)";
     } else if (answers.license === "IBM") {
       license =
-        "[![License: IPL 1.0](https://img.shields.io/badge/License-IPL%201.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)";
+        "[![License: IPL 1.0](https://img.shields.io/badge/License-IPL%201.0-blue.svg)(https://opensource.org/licenses/IPL-1.0)";
     } else if (answers.license === "Apache") {
       license =
         "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)(https://opensource.org/licenses/Apache-2.0)";
     }
 
     ///new Markdown variable
-    let markdown = `### GitHub Username 
+    let markdown = `### GitHub Username ***
     ${answers.github} 
 ### Title ****
     ${answers.title} 
-## Description
+## Description ***
     ${answers.description} 
-## Table of Contents *****************
+## Table of Contents ****
 * [Installation Instructions](##Installation_Instructions)
 * [Usage Information](##Usage_Information)
 * [Contribution Guidlines](##Contribution_Guidlines)
 * [License](##License) 
-## Installation_Instructions 
+## Installation_Instructions ***
      ${answers.installation_instructions} 
-## Usage_Information 
+## Usage_Information ***
      ${answers.usage_information}
-## Contribution_Guidlines
+## Contribution_Guidlines ***
      ${answers.contribution_guidlines}
-## License 
+## License ***
      ${license}`;
 
     fs.writeFile("README.md", markdown, function (error) {

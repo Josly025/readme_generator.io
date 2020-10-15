@@ -84,6 +84,9 @@ inquirer
      ${answers.usage_information}
 ## Contribution_Guidlines ***
      ${answers.contribution_guidlines}
+## Questions 
+* If you have any questions, feel free to reach out to me by email.
+    ${answers.questions}
 ## License ***
      ${license}`;
 

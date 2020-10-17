@@ -60,12 +60,11 @@ inquirer
         "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)(https://opensource.org/licenses/MIT)";
     } else if (answers.license === "IBM") {
       license =
-        "[![License: IPL 1.0](https://img.shields.io/badge/License-IPL%201.0-blue.svg)(https://opensource.org/licenses/IPL-1.0)";
+        "[![License: IPL 1.0](https://img.shields.io/badge/License-IPL%201.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)";
     } else if (answers.license === "Apache") {
       license =
-        "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)(https://opensource.org/licenses/Apache-2.0)";
+        "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
     }
-
     ///new Markdown variable
     let markdown = `### Title **** ${answers.title} 
 ## Description ***
@@ -87,7 +86,7 @@ inquirer
 ### GitHub Username ***
     ${answers.github} 
 ## License ***
-     ${license}`;
+    ${license}`;
 
     fs.writeFile("README.md", markdown, function (error) {
       if (error) {

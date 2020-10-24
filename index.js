@@ -31,8 +31,9 @@ inquirer
     },
     {
       type: "input",
-      message: "What are the Contribution Guidlines?",
-      name: "contribution_guidlines",
+      message:
+        "(CREDITS) What collaborators, third-party assets, or tutorials should recieve credit for their help?",
+      name: "credits",
     },
     {
       type: "input",
@@ -78,6 +79,8 @@ inquirer
      ${answers.installation_instructions} 
 ## Usage_Information ***
      ${answers.usage_information}
+## Credits 
+     ${answers.credits}
 ## Contribution_Guidlines ***
      ${answers.contribution_guidlines}
 ## Questions 
